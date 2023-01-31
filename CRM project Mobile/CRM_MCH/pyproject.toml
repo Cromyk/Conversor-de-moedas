@@ -1,0 +1,36 @@
+[tool.briefcase]
+project_name = "CRM PROJECT MOBILE"
+bundle = "com.example"
+version = "0.0.1"
+url = "https://example.com/CRM_MCH"
+license = "GNU General Public License v3 or later (GPLv3+)"
+author = 'Marco Antônio de Souza Matos'
+author_email = "marco@example.com"
+
+[tool.briefcase.app.CRM_MCH]
+formal_name = "CRM Project"
+description = "Aplicatico mobile CRM para controle e acompanhando de relacionamentos de clientes e estatisticas"
+icon = "src/CRM_MCH/resources/CRM_MCH"
+sources = ['src/CRM_MCH']
+requires = [
+]
+
+[tool.briefcase.app.CRM_MCH.windows]
+requires = [
+    'toga-winforms>=0.3.0.dev38',
+]
+
+# Mobile deployments
+
+[tool.briefcase.app.CRM_MCH.android]
+requires = [
+    'toga-android>=0.3.0.dev38'
+]
+
+[tool.briefcase.app.CRM_MCH.web]
+requires = [
+    # Workaround; toga-web 0.3.0.dev38 doesn't include toga-core as a dependency.
+    "toga-core>=0.3.0.dev38",
+    "toga-web>=0.3.0.dev38",
+]
+style_framework = "Bootstrap v4.6"
