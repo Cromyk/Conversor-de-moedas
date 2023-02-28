@@ -1,0 +1,72 @@
+[tool.briefcase]
+project_name = "ConversorMoedas"
+bundle = "com.example"
+version = "0.0.1"
+url = "https://example.com/ConversorFacil"
+license = "GNU General Public License v3 or later (GPLv3+)"
+author = 'Marco Antônio de Souza Matos'
+author_email = "m412k1nh0@gmail.com"
+
+[tool.briefcase.app.ConversorFacil]
+formal_name = "ConversorMoedas"
+description = "Aplicativo de auxilio a cotação e conversão de moedas"
+icon = "src/ConversorFacil/resources/ConversorFacil"
+sources = ['src/ConversorFacil']
+requires = [
+]
+
+
+[tool.briefcase.app.ConversorFacil.macOS]
+requires = [
+    'toga-cocoa>=0.3.0.dev38',
+    'std-nslog~=1.0.0'
+]
+
+[tool.briefcase.app.ConversorFacil.linux]
+requires = [
+    'toga-gtk>=0.3.0.dev38',
+]
+
+[tool.briefcase.app.ConversorFacil.linux.appimage]
+system_requires = [
+    'gir1.2-webkit-3.0',
+    'libcairo2-dev',
+    'libgirepository1.0-dev',
+    'libgtk-3-dev',
+    'libpango1.0-dev',
+    'librsvg2-dev',
+    'libwebkitgtk-3.0-0',
+]
+linuxdeploy_plugins = [
+    'DEPLOY_GTK_VERSION=3 gtk',
+]
+
+[tool.briefcase.app.ConversorFacil.linux.flatpak]
+flatpak_runtime = 'org.gnome.Platform'
+flatpak_runtime_version = '42'
+flatpak_sdk = 'org.gnome.Sdk'
+
+[tool.briefcase.app.ConversorFacil.windows]
+requires = [
+    'toga-winforms>=0.3.0.dev38',
+]
+
+# Mobile deployments
+[tool.briefcase.app.ConversorFacil.iOS]
+requires = [
+    'toga-iOS>=0.3.0.dev38',
+    'std-nslog~=1.0.0'
+]
+
+[tool.briefcase.app.ConversorFacil.android]
+requires = [
+    'toga-android>=0.3.0.dev38'
+]
+
+[tool.briefcase.app.ConversorFacil.web]
+requires = [
+    # Workaround; toga-web 0.3.0.dev38 doesn't include toga-core as a dependency.
+    "toga-core>=0.3.0.dev38",
+    "toga-web>=0.3.0.dev38",
+]
+style_framework = "Bootstrap v4.6"
